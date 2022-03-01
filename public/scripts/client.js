@@ -82,4 +82,25 @@ $(document).ready(function() {
 
   });
 
+  $(".newtweettoggle").click(function(event) {
+    $(".tweet-form").slideToggle("slow");
+  });
+
+  $(window).scroll(function(event) {
+
+    if ($(this).scrollTop() > 200) {
+      $(".totop").fadeIn("slow");
+      $("nav").slideUp("slow");
+    } else {
+      $(".totop").fadeOut("slow");
+      $("nav").slideDown("slow");
+    }
+    
+  });
+
+  $(".totop").click(function(event) {
+    $("html, body").animate({scrollTop: 0}, "slow");
+    $(".tweet-form").slideToggle("slow");
+  });
+
 });
