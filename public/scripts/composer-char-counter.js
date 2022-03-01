@@ -8,21 +8,4 @@ $(document).ready(function() {
       $(this).parent().find(".counter").css("color", "red");
     }
   });
-
-  // $("textarea").on("keydown", (event) => {
-  //   console.log(event);
-  // });
-
-  // $("textarea").on("keyup", (event) => {
-  //   console.log(event);
-  // });
-
-  // $("textarea").on("change", (event) => {
-  //   console.log(event);
-  // });
-
-  // $("textarea").on("input", (event) => {
-  //   console.log(event);
-  // });
-
 });
