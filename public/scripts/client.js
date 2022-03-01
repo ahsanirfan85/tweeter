@@ -4,30 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
 
   const createTweetElement = function(tweetObject) {
     let tweetElement = `<article id="tweet-container">
@@ -40,7 +16,7 @@ $(document).ready(function() {
         <h3 class="tweeter-handle">${tweetObject.user.handle}</h3>
       </header>
       <div>
-        <p class="tweet">${tweetObject.content.text}</p>
+        <p class="tweet">${escape(tweetObject.content.text)}</p>
       </div>
       <footer>
         <p class="age">Posted ${timeago.format(tweetObject.created_at)}</p>
@@ -55,14 +31,29 @@ $(document).ready(function() {
   return tweetElement;
   }
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const renderTweets = function(arrayOfTweets) {
     for (const tweet of arrayOfTweets) {
       const $tweet = createTweetElement(tweet);
-      $('.container').append($tweet);    
+      $('.container').append($tweet);
     }
   }
 
-  renderTweets(data);
+  const loadTweets = function() {
+    // $('.container').empty();
+    $.ajax('/tweets', { method: 'GET' })
+    .then(function (tweetsJSON) {
+      console.log('Success: ', tweetsJSON);
+      renderTweets(tweetsJSON);
+    });
+  };
+
+  loadTweets();
 
   $("#tweetbutton").on("input", function(event) {
     console.log(140 - $(this).val().length);
@@ -74,9 +65,21 @@ $(document).ready(function() {
 
   $(".tweet-form").submit(function(event) {
     event.preventDefault();
+    
     const string = $(this).serialize();
-    console.log(string);
-    $.post("/tweets", string);    
+    
+    if (string === "text=") {
+      // alert("Please write a Tweet before clicking the Tweet button!");
+      $(".error-message").html("<strong>Error:</strong> Please write a Tweet before clicking the Tweet button!").slideDown("slow");
+    } else if (string.length > 145) {
+      $(".error-message").html("<strong>Error:</strong> Please keep your tweets to shorter than 140 characters!").slideDown("slow");
+      // alert("Please keep your tweets to shorter than 140 characters!");
+    } else {
+      $.post("/tweets", string);
+      loadTweets();
+      $(this).trigger('reset');
+    }
+
   });
 
 });

@@ -6,6 +6,8 @@ $(document).ready(function() {
     $(this).parent().find(".counter").html(140 - $(this).val().length);
     if ($(this).val().length >= 140) {
       $(this).parent().find(".counter").css("color", "red");
+    } else {
+      $(this).parent().find(".counter").css("color", "#545149");
     }
   });
 });
