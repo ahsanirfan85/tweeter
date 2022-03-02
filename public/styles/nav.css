@@ -1,6 +1,7 @@
+/* Styling for the navbar. */
 nav {
   height: 120px;
-  background-color: #4056A1;
+  background-color: transparent;
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;

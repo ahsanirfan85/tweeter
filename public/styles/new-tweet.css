@@ -1,9 +1,11 @@
+/* Styling for the tweet form. */
 #new-tweet {
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   font-weight: 600;
   display: none;
+  margin-top: 70px;
 }
 
 #new-tweet form {
@@ -39,5 +41,4 @@
   border-right-width: 0px;
   border-left-width: 0px;
   border-bottom-width: 3px;
-  width: 100%;
 }

@@ -1,0 +1,30 @@
+/* Styling for responsive web design. It handles two separate layouts for different screen widths.*/
+@media (min-width: 786px) {
+  body {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  nav {
+    background-color: #4056A1;
+  }
+
+  body > header {
+    width: 50%;
+    height: 50%;
+    padding: 50px;
+    margin-top: 180px;
+    margin-bottom: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  body > main {
+    width: 100%;
+    margin-top: 120px;
+  }
+
+  /* #new-tweet {
+    display: block;
+  } */
+}

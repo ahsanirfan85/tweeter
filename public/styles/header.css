@@ -1,10 +1,10 @@
+/* Styling for the header, which will contain the user's avatar and the name. */
 body > header {
   height: 520px;
   width: 100%;
   padding-top: 120px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: orange;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
@@ -24,4 +24,3 @@ body > header strong {
 body > header img {
   padding-top: 5px;
 }
-
