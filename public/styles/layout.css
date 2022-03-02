@@ -34,3 +34,7 @@ body {
    flex-direction: column;
    justify-content: center;
  }
+
+ #tweet-container {
+   margin: 70px;
+ }

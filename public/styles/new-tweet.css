@@ -1,21 +1,21 @@
-.new-tweet {
+#new-tweet {
   width: 100%;
   display: flex;
   flex-direction: column;
   font-weight: 600;
+  display: none;
 }
 
-.tweet-form {
+#new-tweet form {
   display: flex;
   flex-direction: column;
   border-top: 0px;
   border-right: 0px;
   border-right: 0px;
   margin-top: 30px;
-  display: none;
 }
 
-.belowtweetbox {
+#new-tweet form div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -24,12 +24,12 @@
   font-family: 'Bungee', sans-serif;
 }
 
-.tweetbutton {
+#new-tweet form div button {
   background-color: #4056A1;
   color: #FFFFFF;
 }
 
-.tweetbox {
+#new-tweet form textarea {
   height: 50px;
   resize: none;
   outline: none;

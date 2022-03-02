@@ -1,4 +1,4 @@
-.profile-header {
+body > header {
   height: 520px;
   width: 100%;
   padding-top: 120px;
@@ -11,17 +11,17 @@
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-.tweetername {
+body > header h2 {
   margin: 0;
   color: white;
   font-weight: 300;
 }
 
-.tweeterfirstname {
+body > header strong {
   font-weight: 600;
 }
 
-.avatar {
+body > header img {
   padding-top: 5px;
 }
 

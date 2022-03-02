@@ -1,52 +1,44 @@
-#tweet-container {
+#tweet-container article {
   border: solid;
   border-width: 3px;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-#tweet-container:hover {
+#tweet-container article:hover {
   box-shadow: 5px 5px rgb(193, 197, 231);  
 }
 
-#tweet-container header {
+#tweet-container article header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-#tweet-container header div {
+#tweet-container article header div {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
-#tweet-container header div h3 {
+#tweet-container article header div h3 {
+  margin-left: 10px;
   font-weight: 300;
   font-size: 20px;
 }
 
-#tweet-container header h3 {
+#tweet-container article header h3 {
   font-weight: 600;
   font-size: 20px;
+  margin: 0px;
 }
 
-#tweet-container footer {
+#tweet-container article footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-#tweet-container header h3 {
-  margin: 0px;
-}
-
-#tweet-container footer p {
-  margin: 0px;
-}
-
-#tweet-container footer {
   border: solid;
   padding-top: 10px;
   border-top-width: 3px;
@@ -57,12 +49,11 @@
   font-weight: 600;
 }
 
-.tweet {
-  border: solid;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-bottom-width: 0px;
+#tweet-container article footer p {
+  margin: 0px;
+}
+
+#tweet-container article p {
   padding-top: 20px;
   padding-bottom: 10px;
   padding-left: 0px;
@@ -80,4 +71,3 @@
 .fa-solid:hover {
   color: gold;
 }
-

@@ -11,7 +11,7 @@ nav {
   top: 0;
 }
 
-span {
+nav > span {
   font-family: 'Bungee', sans-serif;
   color: #FFFFFF;
   padding: 1.5em;
@@ -20,7 +20,7 @@ span {
   align-items: center;
 }
 
-.newtweettext {
+nav > span > p {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
 }

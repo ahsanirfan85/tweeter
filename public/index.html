@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" href="/styles/error.css" type="text/css" />
 
-    <link rel="stylesheet" href="/styles/button.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/scroll-button.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,59 +45,57 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span class="logo">tweeter</span>
-      <span class="newtweettoggle">
-        <p class="newtweettext"><strong>Write</strong> a new tweet</p>
-        <p class="newtweettext"><i class="fa-solid fa-angles-down"></i></p>
+      <span>tweeter</span>
+      <span id="newtweettoggle">
+        <p><strong>Write</strong> a new tweet</p>
+        <p><i class="fa-solid fa-angles-down"></i></p>
       </span>
     </nav>
 
-    <header class="profile-header">
+    <header>
       <div>
-          <img class="avatar" src="/images/profile-hex.png"> 
+          <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2 class="tweetername"><strong class="tweeterfirstname">Amy</strong> Mansell</h2>
+          <h2><strong>Amy</strong> Mansell</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section id="new-tweet">
         <div class="error-message">Error Message:</div>
-        <form class="tweet-form" method="POST" action="/tweets/">
-          <label hidden class="tweetlabel" for="tweet-text">What are you humming about?</label>
-          <textarea placeholder="What are you humming about?" name="text" class="tweetbox" id="tweet-text"></textarea>
-          <div class="belowtweetbox">
-            <button class="tweetbutton" type="submit">Tweet</button>
+        <form method="POST" action="/tweets/">
+          <label hidden for="tweet-text">What are you humming about?</label>
+          <textarea placeholder="What are you humming about?" name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <!-- <article id="tweet-container">
-        <div class="shadow">
+      <section id="tweet-container">
+        <!-- <article>
           <header>
             <div>
-              <img class="avatar">
-              <h3 class="tweeter-name">Amy Mansell</h3>
+              <img>
+              <h3>Amy Mansell</h3>
             </div>
-            <h3 class="tweeter-handle">@amymansell</h3>
+            <h3>@amymansell</h3>
           </header>
-          <div>
-            <p class="tweet">Blah, blah, blah.</p>
-          </div>
+          <p class="tweet">Blah, blah, blah.</p>
           <footer>
-            <p class="age">10 days ago</p>
+            <p>10 days ago</p>
             <p class="icons">
               <i class="fa-solid fa-flag"></i>
               <i class="fa-solid fa-retweet"></i>
               <i class="fa-solid fa-heart"></i>
             </p>
           </footer>
-        </div>
-      </article> -->
-      <button class="totop" type="submit"><i class="fa-solid fa-angles-up"></i></button>
+        </article> -->
+      </section>
+      <button type="submit"><i class="fa-solid fa-angles-up"></i></button>
     </main>
   </body>
 </html>

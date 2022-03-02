@@ -6,27 +6,23 @@
 $(document).ready(function() {
 
   const createTweetElement = function(tweetObject) {
-    let tweetElement = `<article id="tweet-container">
-    <div class="shadow">
-      <header>
-        <div>
-          <img class="avatar">
-          <h3 class="tweeter-name">${tweetObject.user.name}</h3>
-        </div>
-        <h3 class="tweeter-handle">${tweetObject.user.handle}</h3>
-      </header>
+    let tweetElement = `<article>
+    <header>
       <div>
-        <p class="tweet">${escape(tweetObject.content.text)}</p>
+        <img src="${tweetObject.user.avatars}">
+        <h3>${tweetObject.user.name}</h3>
       </div>
-      <footer>
-        <p class="age">Posted ${timeago.format(tweetObject.created_at)}</p>
-        <p class="icons">
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
-        </p>
-      </footer>
-    </div>
+      <h3>${tweetObject.user.handle}</h3>
+    </header>
+    <p class="tweet">${escape(tweetObject.content.text)}</p>
+    <footer>
+      <p>Posted ${timeago.format(tweetObject.created_at)}</p>
+      <p class="icons">
+        <i class="fa-solid fa-flag"></i>
+        <i class="fa-solid fa-retweet"></i>
+        <i class="fa-solid fa-heart"></i>
+      </p>
+    </footer>
   </article>`;
   return tweetElement;
   }
@@ -40,12 +36,12 @@ $(document).ready(function() {
   const renderTweets = function(arrayOfTweets) {
     for (const tweet of arrayOfTweets) {
       const $tweet = createTweetElement(tweet);
-      $('.container').append($tweet);
+      $('#tweet-container').prepend($tweet);
     }
   }
 
   const loadTweets = function() {
-    // $('.container').empty();
+    $('#tweet-container').empty();
     $.ajax('/tweets', { method: 'GET' })
     .then(function (tweetsJSON) {
       console.log('Success: ', tweetsJSON);
@@ -63,44 +59,41 @@ $(document).ready(function() {
     }
   });
 
-  $(".tweet-form").submit(function(event) {
+  $("#new-tweet form").submit(function(event) {
     event.preventDefault();
-    
     const string = $(this).serialize();
     
     if (string === "text=") {
-      // alert("Please write a Tweet before clicking the Tweet button!");
       $(".error-message").html("<strong>Error:</strong> Please write a Tweet before clicking the Tweet button!").slideDown("slow");
     } else if (string.length > 145) {
       $(".error-message").html("<strong>Error:</strong> Please keep your tweets to shorter than 140 characters!").slideDown("slow");
-      // alert("Please keep your tweets to shorter than 140 characters!");
     } else {
       $.post("/tweets", string);
       loadTweets();
-      $(this).trigger('reset');
+      $("#new-tweet form textarea").val("");
     }
 
   });
 
-  $(".newtweettoggle").click(function(event) {
-    $(".tweet-form").slideToggle("slow");
+  $("#newtweettoggle").click(function(event) {
+    $("#new-tweet").slideToggle("slow");
   });
 
   $(window).scroll(function(event) {
 
     if ($(this).scrollTop() > 200) {
-      $(".totop").fadeIn("slow");
+      $("main > button").fadeIn("slow");
       $("nav").slideUp("slow");
     } else {
-      $(".totop").fadeOut("slow");
+      $("main > button").fadeOut("slow");
       $("nav").slideDown("slow");
     }
     
   });
 
-  $(".totop").click(function(event) {
+  $("main > button").click(function(event) {
     $("html, body").animate({scrollTop: 0}, "slow");
-    $(".tweet-form").slideToggle("slow");
+    $("#new-tweet").slideToggle("slow");
   });
 
 });
