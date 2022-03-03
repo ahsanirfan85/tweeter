@@ -1,16 +1,25 @@
 /* Styling for the navbar. */
+
 /* SASS Variables */
+$nav-font-color: #FFFFFF;
+$nav-font-family: 'Source Sans Pro', sans-serif;
+$logo-font-family: 'Bungee', sans-serif;
+
 /* SASS Mixins */
+@mixin nav-vertical-alignment($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+}
+
 /* Style that applies to the navbar as a whole. */
 nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include nav-vertical-alignment($direction: row);
   justify-content: space-between;
   height: 120px;
   background-color: transparent;
-  color: #FFFFFF;
-  position: absolute;
+  color: $nav-font-color;
+  position:absolute;
   width: 100%;
   position: fixed;
   top: 0;
@@ -18,20 +27,17 @@ nav {
 
 /* Styling for the two divs in the navbar. One contains the logo (left side), the other contains the "Write a new tweet" text (right side). */
 nav > span {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Bungee", sans-serif;
-  color: #FFFFFF;
+  @include nav-vertical-alignment();
+  font-family: $logo-font-family;
+  color: $nav-font-color;
   padding: 1.5em;
 }
 
 /* Extra styling for the "Write a new tweet" box. */
 nav > span > p {
   margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $nav-font-family;
 }
-
 .fa-angles-down {
   color: red;
 }

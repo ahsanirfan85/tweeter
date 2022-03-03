@@ -1,0 +1,36 @@
+/* Styling for the layout of the app.*/
+
+/* SASS Variables */
+$body-font-color: #545149;
+$body-bg-color: #f4f1ec;
+$body-font-family: 'Source Sans Pro', sans-serif;
+
+/* SASS Mixins */
+@mixin main-page-vertical-alignment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Global style */
+body {
+  @include main-page-vertical-alignment();
+  color: $body-font-color;
+  background-color: $body-bg-color;
+  font-size: 24px;
+  font-family: $body-font-family;
+}
+
+/* Global style applying to everything except the navbar and header. */
+main {
+  @include main-page-vertical-alignment();
+  justify-content: center;
+  width: 90%;
+}

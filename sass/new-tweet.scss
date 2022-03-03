@@ -1,0 +1,54 @@
+/* Styling for the tweet form. */
+
+/* SASS Variables */
+$new-tweet-font-family: 'Bungee', sans-serif;
+$new-tweet-bg-color: #4056A1;
+$new-tweet-font-color: #FFFFFF;
+
+#new-tweet {
+
+  /* Global styling for the "new tweet" form. */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  display: none;
+  margin-top: 70px;
+
+  /* Styling for the form elements */
+  form {
+    display: flex;
+    flex-direction: column;
+    border-top: 0px;
+    border-right: 0px;
+    border-right: 0px;
+    margin-top: 30px;
+    
+    /* Styling for the tweet button and the character counter */
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 20px;
+      padding-bottom: 80px;
+      font-family: $new-tweet-font-family;
+      button {
+        background-color: $new-tweet-bg-color;
+        color: $new-tweet-font-color;
+      }
+    }
+
+    /* Styling for the input field */
+    textarea {
+      height: 50px;
+      resize: none;
+      outline: none;
+      font-weight: 600;
+      background-color: transparent;
+      border-top-width: 0px;
+      border-right-width: 0px;
+      border-left-width: 0px;
+      border-bottom-width: 3px;
+    }
+  }
+}

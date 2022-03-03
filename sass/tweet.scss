@@ -1,0 +1,84 @@
+/* Styling for tweets. */
+
+/* SASS Mixins */
+@mixin tweet-vertical-alignment($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+}
+
+#tweet-container {
+  /* Global style for the section that contains the tweets. */
+  @include tweet-vertical-alignment();
+  margin: 70px;
+
+  /* Style that applies to individual tweets. */
+  article {
+    width: 100%;
+    border: solid;
+    border-width: 3px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    /* Style that applies to the avatar, username & user handle at the top of the tweet. */
+    header {
+      @include tweet-vertical-alignment($direction: row);
+      justify-content: space-between;
+      div {
+        @include tweet-vertical-alignment($direction: row);
+        h3 {
+          margin-left: 10px;
+          font-weight: 300;
+          font-size: 20px;
+        }
+      }
+      h3 {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0px;
+      }
+    }
+
+    /* Style that applies to the time posted (left side) and the flag, retweet & like icons (right side), below the text of the tweet. */
+    footer {
+      @include tweet-vertical-alignment($direction: row);
+      justify-content: space-between;
+      border: solid;
+      padding-top: 10px;
+      border-top-width: 3px;
+      border-left-width: 0px;
+      border-right-width: 0px;
+      border-bottom-width: 0px;
+      font-size: 15px;
+      font-weight: 600;
+      p {
+        margin: 0px;
+      }
+    }
+  }
+
+  /* Shadow applied to the tweet box. */
+  article:hover {
+    box-shadow: 5px 5px rgb(193, 197, 231);  
+  }
+
+  /* Padding for the tweet box. */
+  p {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+/* Style that applies to the flag, retweet & like icons. */
+.icons {
+  color: #4056A1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-basis: 60px;
+}
+.fa-solid:hover {
+  color: gold;
+}

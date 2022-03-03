@@ -1,27 +1,36 @@
 /* Styling for the header, which will contain the user's avatar and the name. */
+
 /* SASS Mixins*/
-body > header {
-  /* Alignment, sizing, padding & background of the header. */
+@mixin header-vertical-alignment {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+body > header {
+
+  /* Alignment, sizing, padding & background of the header. */
+  @include header-vertical-alignment();
   height: 520px;
   width: 100%;
   padding-top: 120px;
   background-color: orange;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
   /* Text of the user's name. */
+  h2 {
+    margin: 0;
+    color: white;
+    font-weight: 300;
+  }
+
   /* Makes the first name of the user bold */
+  strong {
+    font-weight: 600;
+  }
+
   /* Top padding for the user's avatar. */
-}
-body > header h2 {
-  margin: 0;
-  color: white;
-  font-weight: 300;
-}
-body > header strong {
-  font-weight: 600;
-}
-body > header img {
-  padding-top: 5px;
+  img {
+    padding-top: 5px;
+  }
 }

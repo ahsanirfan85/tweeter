@@ -1,4 +1,5 @@
 /* Styling for responsive web design. It handles two separate layouts for different screen widths. Breakpoint: 786px. On smaller screens all sections follower one after the other. On larger screens, the header and the tweets section are place side by side under the navbar.*/
+
 @media (min-width: 786px) {
   body {
     flex-direction: row;
