@@ -15,3 +15,7 @@ A simple single-page AJAX-based Twitter clone that uses jQuery, HTML5, CSS3 & SC
 
 ## Screenshots
 
+!["Screenshot of the main page"](https://github.com/ahsanirfan85/tweeter/blob/master/docs/tweeter-main-page.png?raw=true)
+!["Screenshot of the new tweet box"](https://github.com/ahsanirfan85/tweeter/blob/master/docs/new-tweet-box.png?raw=true)
+!["Screenshot of the 'scroll to top' button"](https://github.com/ahsanirfan85/tweeter/blob/master/docs/scroll-to-top-button.png?raw=true)
+!["Screenshot of mobile version"](https://github.com/ahsanirfan85/tweeter/blob/master/docs/design-for-small-screens.png?raw=true)
